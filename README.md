@@ -127,6 +127,17 @@ Measured on a 2-vCPU Linux VM, Release build:
 ./build/ota-agent --ports 256 --pollers 4 --workers 4 --rate 100 --duration 10
 ```
 
+**Alarm flapping.** `flap-bench` feeds 10,000 temperature readings hovering at
+the 70 °C limit (σ = 0.5 °C) through a naive single-threshold check and through
+the agent's hysteresis + 3-sample soak logic:
+
+```
+$ ./build/flap-bench
+samples hovering at the 70 C limit: 10000
+naive threshold   : 5077 alarm transitions
+hysteresis + soak : 1 alarm transitions
+```
+
 Throughput stops scaling past 2 workers on this machine because it has only
 2 cores; numbers will differ on other hardware.
 

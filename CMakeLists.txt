@@ -36,6 +36,9 @@ add_executable(ota-agent src/main.cpp)
 target_link_libraries(ota-agent PRIVATE ota_core)
 target_compile_options(ota-agent PRIVATE -Wall -Wextra -Wpedantic)
 
+add_executable(flap-bench tools/flap_bench.cpp)
+target_link_libraries(flap-bench PRIVATE ota_core)
+
 if(OTA_BUILD_TESTS)
   enable_testing()
   find_package(GTest QUIET)
