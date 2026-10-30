@@ -1,0 +1,10 @@
+build*/
+cmake-build-*/
+.cache/
+compile_commands.json
+__pycache__/
+.pytest_cache/
+*.jsonl
+.vscode/
+.idea/
+.DS_Store
